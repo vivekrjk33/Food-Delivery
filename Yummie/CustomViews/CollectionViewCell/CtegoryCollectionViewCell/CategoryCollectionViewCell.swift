@@ -9,7 +9,9 @@ import UIKit
 import Kingfisher
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-
+ 
+    static let identity = String(describing: CategoryCollectionViewCell.self)
+     
     @IBOutlet weak var categoryTitleLbl: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     

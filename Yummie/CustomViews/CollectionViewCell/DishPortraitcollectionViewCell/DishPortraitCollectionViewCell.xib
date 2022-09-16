@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DishPortraitCollectionViewCell" customModule="Yummie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gI8-4O-lbA" customClass="CardView" customModule="Yummie" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tao-ed-v1b">
+                                <rect key="frame" x="8" y="8" width="164" height="284"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2u-oJ-Eyn">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="by7-Gf-KxC">
+                                        <rect key="frame" x="0.0" y="27.5" width="164" height="209"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evl-vs-io6">
+                                        <rect key="frame" x="0.0" y="244.5" width="164" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.87845033409999995" green="0.042648211628401357" blue="0.19190575085435277" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9f-nt-CSe">
+                                        <rect key="frame" x="0.0" y="267" width="164" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Tao-ed-v1b" secondAttribute="bottom" constant="8" id="5uv-lO-1mx"/>
+                            <constraint firstItem="Tao-ed-v1b" firstAttribute="top" secondItem="gI8-4O-lbA" secondAttribute="top" constant="8" id="AvW-pk-vjW"/>
+                            <constraint firstAttribute="width" constant="180" id="LvI-CM-7gC"/>
+                            <constraint firstAttribute="height" constant="300" id="QnV-wl-D7S"/>
+                            <constraint firstAttribute="trailing" secondItem="Tao-ed-v1b" secondAttribute="trailing" constant="8" id="XIV-iN-9fM"/>
+                            <constraint firstItem="Tao-ed-v1b" firstAttribute="leading" secondItem="gI8-4O-lbA" secondAttribute="leading" constant="8" id="aWT-zy-XhQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gI8-4O-lbA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="87I-Rf-zJ7"/>
+                <constraint firstAttribute="trailing" secondItem="gI8-4O-lbA" secondAttribute="trailing" id="Lep-oY-gKU"/>
+                <constraint firstItem="gI8-4O-lbA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lxN-lp-mBT"/>
+                <constraint firstAttribute="bottom" secondItem="gI8-4O-lbA" secondAttribute="bottom" id="thg-rc-K8d"/>
+            </constraints>
+            <size key="customSize" width="180" height="300"/>
+            <connections>
+                <outlet property="caloriesLbl" destination="Evl-vs-io6" id="Jg8-2C-pKI"/>
+                <outlet property="descriptionLbl" destination="x9f-nt-CSe" id="Ct8-yp-s3c"/>
+                <outlet property="dishImage" destination="by7-Gf-KxC" id="gZe-BV-50D"/>
+                <outlet property="tiltleLbl" destination="R2u-oJ-Eyn" id="94H-gu-HS3"/>
+            </connections>
+            <point key="canvasLocation" x="269.56521739130437" y="195.53571428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

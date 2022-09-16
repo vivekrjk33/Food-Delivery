@@ -20,11 +20,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNe-FZ-OqS" customClass="CardView" customModule="Yummie" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RNF-zJ-fyM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RNF-zJ-fyM">
                                 <rect key="frame" x="8" y="8" width="40" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Y1M-io-dU9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-Pl-M86">
                                 <rect key="frame" x="56" y="16.5" width="86" height="21"/>
@@ -59,7 +64,7 @@
                 <outlet property="categoryImageView" destination="RNF-zJ-fyM" id="R3D-GL-EOG"/>
                 <outlet property="categoryTitleLbl" destination="fLh-Pl-M86" id="8wr-Ea-AYP"/>
             </connections>
-            <point key="canvasLocation" x="-188.40579710144928" y="50.223214285714285"/>
+            <point key="canvasLocation" x="-245" y="51"/>
         </collectionViewCell>
     </objects>
     <resources>

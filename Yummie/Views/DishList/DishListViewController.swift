@@ -6,31 +6,34 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class DishListViewController: UIViewController {
 
-    var dish : DishCategory!
+    var category : DishCategory!
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dishes : [Dish] = [
-    
-        .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22),
-
-        .init(id: "ID2", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 3454.22),
-        .init(id: "ID3", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 3484.22),
-        .init(id: "ID4", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 32.22),
-        .init(id: "ID5", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 34.22)
-    
-    
-    
-    ]
+    var dishes : [Dish] = [ ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = dish.name
+        title = category.name
         registerCells()
+        
+        ProgressHUD.show()
+        NetworkingServices.shared.fetchCategoriesDishes(categoryId: category.id ?? "") { result in
+            switch result {
+                
+            case .success(let dishes):
+                ProgressHUD.dismiss()
+                self.dishes = dishes
+                self.tableView.reloadData()
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
     }
     
 

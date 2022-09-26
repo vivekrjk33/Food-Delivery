@@ -30,7 +30,18 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        NetworkingServices.shared.fetchAllCategories { result in
+//            switch result {
+//            case .success(let allDishes):
+//                print("SUCESSFULLY ")
+//            case .failure(let error) :
+//                print("Error \(error.localizedDescription)")
+//            }
+//        }
+        
+    
+      
         slides = [ OnboardingSlide(title: "Quick Delivery At Your Door Step", description: "Home delivery and online reservation system for restaurant and cafe", image: #imageLiteral(resourceName: "slide1")),
                OnboardingSlide(title: "Quick Delivery At Your Door Step", description: "Home delivery and online reservation system for restaurant and cafe", image: #imageLiteral(resourceName: "slide2")),
                OnboardingSlide(title: "Quick Delivery At Your Door Step", description: "Home delivery and online reservation system for restaurant and cafe", image: #imageLiteral(resourceName: "slide3")),

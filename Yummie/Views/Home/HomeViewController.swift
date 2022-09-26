@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreMIDI
-
+import ProgressHUD
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
@@ -15,48 +15,40 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var popularDishCollectionView: UICollectionView!
     @IBOutlet weak var specialCollectionView: UICollectionView!
     
-    var categories : [DishCategory] = [
-    
-        .init(id: "Id1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "American", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "France", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "China", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Britain", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Russia", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Thailand", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Dubai", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Pakistan", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14"),
-        .init(id: "Id1", name: "Newzland", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14")
-    ]
+    var categories : [DishCategory] = []
     
     
-    var popular : [Dish] = [
-    
-
-            .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22),
-    
-            .init(id: "ID2", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 3454.22),
-            .init(id: "ID3", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 3484.22),
-            .init(id: "ID4", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 32.22),
-            .init(id: "ID5", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 34.22)
-    ]
+    var popular : [Dish] = []
     
     
-    var special : [Dish] = [
-        .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22),
-
-        .init(id: "ID2", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty foodfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcnfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcnfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcnfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcnfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcnfdjnvfbhffjnghvfgkjfhdngnjnvghmsjgvhsvgchmc,hgmvcghj,mcngjhmfgvjnchcjhg,,cnnsg,amcmfnsjh,gmcskmh,cmgshm,csjhckjchkcn", calories: 3454.22),
-        .init(id: "ID3", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 3484.22),
-        .init(id: "ID4", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 32.22),
-        .init(id: "ID5", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 34.22)
-    
-    ]
-    
-    
+    var special : [Dish] = []
+       
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        view.backgroundColor = UIColor.black
         registerCell()
+        ProgressHUD.show()
+        NetworkingServices.shared.fetchAllCategories { result in
+            
+            switch result {
+            case .success(let allDishes):
+                print("Successdfgdfgdsd")
+                ProgressHUD.dismiss()
+                self.categories = allDishes.categories ?? []
+                self.popular = allDishes.populars ?? []
+                self.special = allDishes.specials ?? []
+                
+                DispatchQueue.main.async {
+                    
+                    self.categoryCollectionView.reloadData()
+                    self.popularDishCollectionView.reloadData()
+                    self.specialCollectionView.reloadData()
+                }
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+                print("errorrr")
+            }
+        }
         
     }
     
@@ -125,7 +117,7 @@ extension HomeViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == categoryCollectionView {
             
             let controller = DishListViewController.instantiate()
-            controller.dish = categories[indexPath.row]
+            controller.category = categories[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         }
         

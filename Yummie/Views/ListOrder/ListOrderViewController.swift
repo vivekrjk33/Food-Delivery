@@ -6,29 +6,39 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ListOrderViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
  
-    var order : [Order] = [
-    
-        .init(id: "Id1", name: "vivek", dish: .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22)),
-        .init(id: "Id1", name: "Ravi", dish: .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22)),
-        .init(id: "Id1", name: "Mukesh", dish: .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22)),
-        .init(id: "Id1", name: "Roshan", dish: .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22)),
-        .init(id: "Id1", name: "Rocky", dish: .init(id: "ID1", name: "Indian", image: "https://i.picsum.photos/id/742/100/200.jpg?hmac=OukJlOVVVKA9hm3Ocjjfc20dDcGTyQo-HvWP1s-5H14", description: "tasty food", calories: 344.22))
-    
-    ]
+    var order : [Order] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
        title = "Order"
        registerCells()
+        ProgressHUD.show()
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkingServices.shared.fetchOrder { [weak self]result in
+            switch result {
+                
+                
+            case .success(let orders):
+                ProgressHUD.dismiss()
+                self?.order = orders
+                self?.tableView.reloadData()
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
+    }
+    
     private func registerCells() {
         tableView.register(UINib(nibName: DishListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.identifier)
     }

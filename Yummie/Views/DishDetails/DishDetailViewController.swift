@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import ProgressHUD
 class DishDetailViewController: UIViewController {
 
     @IBOutlet weak var dishImageView: UIImageView!
@@ -35,5 +35,23 @@ class DishDetailViewController: UIViewController {
 
     @IBAction func clickPlaceOrderBtn(_ sender: Any) {
         
+        guard let name = nameTxtField.text?.trimmingCharacters(in: .whitespaces),
+              !name.isEmpty else {
+                  ProgressHUD.showError("Please enter name")
+                  return
+              }
+        ProgressHUD.show("Placing order")
+        NetworkingServices.shared.placeOrder(dishId: dish.id ?? "", name: name) { result in
+            switch result
+            {
+         
+            case .success(_):
+                ProgressHUD.showSucceed("Place Order has been recived 👨‍🍳")
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
+         
+        print("Name \(name)")
     }
 }

@@ -41,6 +41,7 @@
 		9AA7B67728BE8A8000FCCCCA /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA7B67528BE8A8000FCCCCA /* CategoryCollectionViewCell.xib */; };
 		9AA7B67928BE8BC800FCCCCA /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7B67828BE8BC800FCCCCA /* DishCategory.swift */; };
 		9AE5979928BF696D00229565 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5979828BF696D00229565 /* CardView.swift */; };
+		9AF397EB28E2D2E10043E9BB /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF397EA28E2D2E10043E9BB /* UserDefault+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		9AA7B67528BE8A8000FCCCCA /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		9AA7B67828BE8BC800FCCCCA /* DishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCategory.swift; sourceTree = "<group>"; };
 		9AE5979828BF696D00229565 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9AF397EA28E2D2E10043E9BB /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
 		DBF2995C34B3A68C3094C942 /* Pods-Yummie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.release.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,6 +245,7 @@
 				9A9DAAFB28BE6A23002BE4BA /* UIView+Extension.swift */,
 				9A86F9DD28BE8DA0000A484B /* String+Extension.swift */,
 				9AA4813228D342AC002DAE62 /* UIViewController+Extension .swift */,
+				9AF397EA28E2D2E10043E9BB /* UserDefault+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				9A1839DC28D45DCE00C30644 /* Order.swift in Sources */,
 				9A1839D728D44D5D00C30644 /* DishListViewController.swift in Sources */,
 				9AA7B66C28BE772400FCCCCA /* OnboardingSlide.swift in Sources */,
+				9AF397EB28E2D2E10043E9BB /* UserDefault+Extension.swift in Sources */,
 				9A2409AB28DC56B40043CD93 /* AllDishes.swift in Sources */,
 				9A19294728BE623B00BA7B2A /* AppDelegate.swift in Sources */,
 				9AA4813328D342AC002DAE62 /* UIViewController+Extension .swift in Sources */,

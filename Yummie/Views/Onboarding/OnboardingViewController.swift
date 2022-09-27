@@ -57,6 +57,7 @@ class OnboardingViewController: UIViewController {
             let controller = storyboard?.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
             controller.modalTransitionStyle = .flipHorizontal
             controller.modalPresentationStyle = .fullScreen
+            UserDefaults.standard.hasOnBoard = true
             present(controller, animated: true, completion: nil)
         }
         else {
